@@ -28,11 +28,11 @@ public class Customer {
     private List<Vehicle> vehicles = new ArrayList<>();
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,16 +60,21 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
+    }
+
+//    public Customer(String customerName, String customerSurname, LocalDate dateOfBirth) {
+//        this.customerName = customerName;
+//        this.customerSurname = customerSurname;
+//        this.dateOfBirth = dateOfBirth;
+//    }
+
+    public Customer() {
     }
 
     @Override
@@ -82,4 +87,5 @@ public class Customer {
                 ", vehicles=" + vehicles +
                 '}';
     }
+
 }
