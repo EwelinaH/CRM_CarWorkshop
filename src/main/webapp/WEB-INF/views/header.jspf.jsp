@@ -8,6 +8,9 @@
 <a href="/customer/list">Customer List</a>
 <a href="/customer/add">Customer add</a>
 <a href="/customer/find">Customer find</a>
+<a href="/vehicle/list">Vehicles list</a>
+<a href="/vehicle/add">Vehicle add</a>
+
 
 
 </body>

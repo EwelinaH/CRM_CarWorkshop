@@ -2,8 +2,11 @@ package com.ewelina.app.Vehicle;
 
 import com.ewelina.app.Customer.Customer;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -26,7 +29,8 @@ public class Vehicle {
     @NotBlank
     private String registrationNo;
 
-    @NotBlank
+    @NotNull
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate nextInspection;
 
     public Long getId() {
@@ -34,7 +38,7 @@ public class Vehicle {
     }
 
     @ManyToOne
-    private Customer customer;
+    private Customer customer; //(wiele pojazdów wskazuje na jednego customera)
 
     public void setId(Long id) {
         this.id = id;
@@ -86,6 +90,9 @@ public class Vehicle {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Vehicle() {
     }
 
     @Override

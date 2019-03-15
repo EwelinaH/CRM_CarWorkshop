@@ -2,6 +2,7 @@ package com.ewelina.app.Customer;
 
 import com.ewelina.app.Vehicle.Vehicle;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ public class Customer {
     @NotBlank
     private String customerSurname;
 
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate dateOfBirth;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -68,12 +70,6 @@ public class Customer {
         this.vehicles = vehicles;
     }
 
-//    public Customer(String customerName, String customerSurname, LocalDate dateOfBirth) {
-//        this.customerName = customerName;
-//        this.customerSurname = customerSurname;
-//        this.dateOfBirth = dateOfBirth;
-//    }
-
     public Customer() {
     }
 
@@ -84,7 +80,7 @@ public class Customer {
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", vehicles=" + vehicles +
+//                ", vehicles=" + vehicles +
                 '}';
     }
 

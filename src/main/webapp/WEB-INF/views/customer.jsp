@@ -19,7 +19,7 @@
     <form:input type="text" path="customerSurname" value="Kot"/><br>
 
     Birth Date:
-    <form:input type="date" path="dateOfBirth" value="1/2/89"/><br>
+    <form:input type="date" path="dateOfBirth" value="01/02/1989"/><br>
 
     <input type="submit" value="save">
 
