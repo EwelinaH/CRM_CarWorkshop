@@ -10,6 +10,9 @@
 <a href="/customer/find">Customer find</a>
 <a href="/vehicle/list">Vehicles list</a>
 <a href="/vehicle/add">Vehicle add</a>
+<a href="/employee/add">Employee add</a>
+<a href="/employee/list">Employee list</a>
+
 
 
 

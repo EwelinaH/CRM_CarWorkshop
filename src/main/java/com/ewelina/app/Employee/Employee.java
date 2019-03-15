@@ -4,7 +4,7 @@ import com.ewelina.app.Orders.Orders;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +22,13 @@ public class Employee {
     @NotBlank
     private String employeeSurname;
 
-    @NotBlank
+    @NotNull
     private Long phoneNumber;
 
     @Size(max = 255)
     private String note;
 
-    @NotBlank
+    @NotNull
     private Double manHourCost;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
@@ -82,6 +82,9 @@ public class Employee {
         this.manHourCost = manHourCost;
     }
 
+    public Employee() {
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -91,7 +94,7 @@ public class Employee {
                 ", phoneNumber=" + phoneNumber +
                 ", note='" + note + '\'' +
                 ", manHourCost=" + manHourCost +
-                ", orders=" + orders +
+//                ", orders=" + orders +
                 '}';
     }
 }
