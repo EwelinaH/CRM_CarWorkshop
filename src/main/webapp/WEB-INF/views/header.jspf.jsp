@@ -12,9 +12,8 @@
 <a href="/vehicle/add">Vehicle add</a>
 <a href="/employee/add">Employee add</a>
 <a href="/employee/list">Employee list</a>
-
-
-
+<a href="/orders/add">Order add</a>
+<a href="/orders/list">Orders list</a>
 
 </body>
 </html>

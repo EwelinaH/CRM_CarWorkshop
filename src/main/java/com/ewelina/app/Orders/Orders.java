@@ -1,9 +1,10 @@
 package com.ewelina.app.Orders;
 
 import com.ewelina.app.Employee.Employee;
-import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -15,13 +16,16 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate puttingToRepairDate;
 
-    @NotBlank
+    @NotNull
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate plannedStartRepairDate;
 
-    @NotBlank
+    @NotNull
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate repairStartDate;
 
     @Size(max = 255)
@@ -30,18 +34,19 @@ public class Orders {
     @Size(max = 255)
     private String repairDescription;
 
-    @NotBlank
+    @NotNull
     private String repairStatus;
 
-    @NotBlank
+    @NotNull
     private Double repairCostForCustomer;
+
 
     private Double componentsCost;
 
-    @NotBlank
+    @NotNull
     private Double employeeManHour;
 
-    @NotBlank
+    @NotNull
     private Double workingHours;
 
     @ManyToOne
@@ -133,6 +138,22 @@ public class Orders {
 
     public void setWorkingHours(Double workingHours) {
         this.workingHours = workingHours;
+    }
+
+    public String getProblemDescription() {
+        return problemDescription;
+    }
+
+    public void setProblemDescription(String problemDescription) {
+        this.problemDescription = problemDescription;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
