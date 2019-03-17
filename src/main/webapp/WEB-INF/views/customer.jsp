@@ -13,7 +13,7 @@
 <form:form method="post" action="/customer/add" modelAttribute="customer">
 
     Name:
-    <form:input type="text" path="customerName" value="Ada"/><br>
+    <form:input type="text" path="customerName" value="Viola"/><br>
 
     Surname:
     <form:input type="text" path="customerSurname" value="Kot"/><br>
