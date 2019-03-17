@@ -12,6 +12,7 @@ node {
       archive 'target/*.war'
    }
    stage('Deploy') {
+     sh "rm -rvf /usr/share/tomcat/webapps/ROOT.war"
      sh "cp target/CRM_CarWorkshop-1.0-SNAPSHOT-web.war /usr/share/tomcat/webapps/ROOT.war -v"
    }
 }
