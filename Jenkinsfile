@@ -15,4 +15,7 @@ node {
      sh "rm -rvf /usr/share/tomcat/webapps/ROOT.war"
      sh "cp target/CRM_CarWorkshop-1.0-SNAPSHOT-web.war /usr/share/tomcat/webapps/ROOT.war -v"
    }
+   stage('TestWebApp') {
+     sh "curl -I http://localhost:9090/customer/add | grep 'HTTP/1.1 200 OK'"
+   }
 }
