@@ -11,4 +11,7 @@ node {
     //   junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.war'
    }
+   stage('Deploy') {
+      cp target/CRM_CarWorkshop-1.0-SNAPSHOT-web.war /usr/share/tomcat/webapps/ROOT.war -v
+   }
 }
