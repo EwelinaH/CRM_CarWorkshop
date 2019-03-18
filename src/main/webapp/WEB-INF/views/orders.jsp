@@ -42,7 +42,7 @@
     Working Hours:
     <form:input type="double" path="workingHours" value="12.5"/><br>
 
-    Employee Id:
+    Employee Name:
     <form:select path="employee">
         <form:options items="${availableEmployee}" itemValue="id" itemLabel="employeeSurname"/><br>
     </form:select>

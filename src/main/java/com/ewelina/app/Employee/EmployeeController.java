@@ -40,7 +40,7 @@ public class EmployeeController {
     public String update(@PathVariable Long id, Model model){
         Employee employee = employeeRepository.findOne(id);
         model.addAttribute("employee", employee);
-        return "employee";
+        return "editEmployeeForm";
     }
 
     @PostMapping("/update/{id}")

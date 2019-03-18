@@ -46,7 +46,7 @@ public class OrdersController {
     public String update(@PathVariable Long id, Model model){
         Orders orders = ordersRepository.findOne(id);
         model.addAttribute("orders", orders);
-        return "orders";
+        return "editOrderForm";
     }
 
     @PostMapping("/update/{id}")
@@ -62,7 +62,7 @@ public class OrdersController {
     }
 
     @ModelAttribute("availableEmployee")
-    public List<Employee> getEmloyee(){
+    public List<Employee> getEmployee(){
         return this.employeeRepository.findAll();
     }
 

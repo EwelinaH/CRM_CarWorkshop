@@ -12,6 +12,7 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 
+//    @Query("select c from Customer c where c.customerSurname = ?1")
     @Query("select c from Customer c where c.customerSurname = ?1")
 //    List<Customer> findBySurname(String customerSurname);
     Customer findByCustomerSurname(String customerSurname);

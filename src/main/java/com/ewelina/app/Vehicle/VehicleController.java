@@ -49,7 +49,7 @@ public class VehicleController {
     public String update(@PathVariable Long id, Model model){
         Vehicle vehicle = vehicleRepository.findOne(id);
         model.addAttribute("vehicle", vehicle);
-        return "vehicle";
+        return "editVehicleForm";
     }
 
     @PostMapping("/update/{id}")

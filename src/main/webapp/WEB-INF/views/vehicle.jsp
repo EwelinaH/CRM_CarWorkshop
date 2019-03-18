@@ -27,7 +27,7 @@
     Registration Number:
     <form:input type="text" path="registrationNo" value="KR5T897"/><br>
 
-    Customer Id:
+    Customer Name:
     <form:select path="customer">
         <form:options items="${availableCustomers}" itemValue="id" itemLabel="customerSurname"/><br>
     </form:select>
