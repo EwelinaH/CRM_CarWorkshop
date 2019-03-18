@@ -55,4 +55,19 @@ public class CustomerController {
         customerService.delete(id);
         return "redirect:/customer/list";
     }
+
+    @GetMapping("/find")
+    public String findCustomerBySurname(@ModelAttribute Customer customer){
+        return "searchCustomer";
+    }
+
+    @PostMapping("/find")
+    public String findCustomer(@ModelAttribute Customer customer, String customerSurname){
+        System.out.println("-----\n" +
+                this.customerRepository.findByCustomerSurname(customerSurname)
+                + "-------\n");
+        Customer customer2 = this.customerRepository.findByCustomerSurname(customerSurname);
+        return "redirect:/customer/update/" + customer2.getId();
+    }
+
 }
