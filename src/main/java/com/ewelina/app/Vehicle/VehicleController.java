@@ -69,4 +69,20 @@ public class VehicleController {
         return this.customerRepository.findAll();
     }
 
+    @GetMapping("/findVehiclesByCustomer")
+    @ResponseBody
+    public String findVehiclesByCustomer(@ModelAttribute Long id, Model model){
+        List<Vehicle> vehicles = vehicleRepository.findAllByCustomer_Id(id);
+        model.addAttribute("vehicles", vehicles);
+        return vehicles.toString();
+//        return "vehiclesList";
+    }
+
+//    @GetMapping("/list")
+//    public String getList(Model model){
+//        List<Vehicle> vehicle = vehicleService.findAll();
+//        model.addAttribute("vehicle", vehicle);
+//        return "vehiclesList";
+//    }
+
 }

@@ -17,6 +17,9 @@
         <th>Man/Hour Cost</th>
         <th>Note</th>
         <th>Phone</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Employee orders</th>
     </tr>
 
     <c:forEach items="${employees}" var="employee">
@@ -29,7 +32,12 @@
             <td>${employee.phoneNumber}</td>
             <td>
                 <a href="/employee/delete/${employee.id}">Delete</a>
+            </td>
+            <td>
                 <a href="/employee/update/${employee.id}">Update</a>
+            </td>
+            <td>
+                <a href="/employee/orderList/${employee.id}">Show employee orders</a>
             </td>
         </tr>
     </c:forEach>

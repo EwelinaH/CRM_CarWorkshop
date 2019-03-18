@@ -14,7 +14,7 @@
 
     Search Customer By Surname:
     <%--<form:input type="text" path="customerSurname"/><br>--%>
-    <input type="text" name="customerSurname" id="customerSurname" class="form-control" value="provide instance customerSurname">
+    <input type="text" name="customerSurname" id="customerSurname" class="form-control" value="provide customerSurname: Lelek">
     <input type="submit" value="search">
 
 </form:form>

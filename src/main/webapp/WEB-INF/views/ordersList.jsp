@@ -23,6 +23,8 @@
         <th>Repair Status</th>
         <th>Working Hours</th>
         <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Employee Surname</th>
     </tr>
 
     <c:forEach items="${orders}" var="order">
@@ -39,6 +41,8 @@
             <td>${order.repairStatus}</td>
             <td>${order.workingHours}</td>
             <td>${order.employee.id}</td>
+            <td>${order.employee.employeeName}</td>
+            <td>${order.employee.employeeSurname}</td>
             <td>
                 <a href="/orders/delete/${order.id}">Delete</a>
                 <a href="/orders/update/${order.id}">Update</a>

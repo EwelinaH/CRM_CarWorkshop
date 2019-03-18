@@ -21,6 +21,10 @@
     Birth Date:
     <form:input type="date" path="dateOfBirth" /><br>
 
+    Show Customer Vehicles:
+    <a href="/customer/vehicleList/${customer.id}">Show vehicles</a><br>
+
+
     <input type="submit" value="save">
 
 </form:form>

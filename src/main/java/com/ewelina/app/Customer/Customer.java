@@ -80,7 +80,7 @@ public class Customer {
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-//                ", vehicles=" + vehicles +
+                ", vehicles=" + vehicles.size() +
                 '}';
     }
 

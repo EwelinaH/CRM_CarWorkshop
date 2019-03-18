@@ -15,6 +15,9 @@
         <th>Surname</th>
         <th>Birth date</th>
         <th>ID</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Customer vehicle</th>
     </tr>
 
     <c:forEach items="${customers}" var="customer">
@@ -26,8 +29,15 @@
 
             <td>
                 <a href="/customer/delete/${customer.id}">Delete</a>
+            </td>
+            <td>
                 <a href="/customer/update/${customer.id}">Update</a>
             </td>
+
+            <td>
+                <a href="/customer/vehicleList/${customer.id}">Show vehicles</a>
+            </td>
+
         </tr>
     </c:forEach>
 </table>

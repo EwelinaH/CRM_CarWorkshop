@@ -1,5 +1,8 @@
 package com.ewelina.app.Employee;
 
+import com.ewelina.app.Orders.Orders;
+import com.ewelina.app.Orders.OrdersRepository;
+import com.ewelina.app.Vehicle.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private OrdersRepository ordersRepository;
 
     @GetMapping("/add")
     public String addEmployee(Model model){
@@ -53,6 +59,13 @@ public class EmployeeController {
     public String delete(@PathVariable Long id){
         employeeService.delete(id);
         return "redirect:/employee/list";
+    }
+
+    @GetMapping("/orderList/{id}")
+    public String getVehicleList(@PathVariable Long id, Model model){
+        List<Orders> orders = ordersRepository.findAllByEmployee_Id(id);
+        model.addAttribute("orders", orders);
+        return "ordersList";
     }
 
 }

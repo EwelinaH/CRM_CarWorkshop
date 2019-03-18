@@ -36,8 +36,16 @@
     Repair Start Date:
     <form:input type="date" path="repairStartDate" value="02/08/2019"/><br>
 
+    <%--Repair Status:--%>
+    <%--<form:input type="text" path="repairStatus" value="in repair"/><br>--%>
     Repair Status:
-    <form:input type="text" path="repairStatus" value="in repair"/><br>
+    <form:select path="repairStatus">
+        <form:option value="In repair" label="In repair"/>
+        <form:option value="Repair costs accepted" label="Repair costs accepted"/>
+        <form:option value="Ready to receive" label="Ready to receive"/>
+        <form:option value="Resignation" label="Resignation"/>
+        <form:option value="Admitted to repair" label="Admitted to repair"/>
+    </form:select><br>
 
     Working Hours:
     <form:input type="double" path="workingHours" value="12.5"/><br>

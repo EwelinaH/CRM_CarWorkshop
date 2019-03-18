@@ -1,5 +1,7 @@
 package com.ewelina.app.Customer;
 
+import com.ewelina.app.Vehicle.Vehicle;
+import com.ewelina.app.Vehicle.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
 
     @GetMapping("/add")
@@ -69,5 +74,14 @@ public class CustomerController {
         Customer customer2 = this.customerRepository.findByCustomerSurname(customerSurname);
         return "redirect:/customer/update/" + customer2.getId();
     }
+
+
+    @GetMapping("/vehicleList/{id}")
+    public String getVehicleList(@PathVariable Long id, Model model){
+        List<Vehicle> vehicle = vehicleRepository.findAllByCustomer_Id(id);
+        model.addAttribute("vehicle", vehicle);
+        return "vehiclesList";
+    }
+
 
 }
