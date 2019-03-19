@@ -13,4 +13,8 @@ public interface OrdersRepository extends JpaRepository<Orders, Long> {
 
     @Query("select o from Orders o where o.employee.id = ?1")
     List<Orders> findAllByEmployee_Id (Long id);
+
+    @Query("select o from Orders o where o.employee.id = ?1 and o.repairStatus = 'in repair' order by o.repairStartDate asc")
+    List<Orders> findAllByEmployee_IdAndRepairStatus (Long id);
+
 }

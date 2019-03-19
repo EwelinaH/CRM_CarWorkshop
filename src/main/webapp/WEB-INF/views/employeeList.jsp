@@ -39,6 +39,11 @@
             <td>
                 <a href="/employee/orderList/${employee.id}">Show employee orders</a>
             </td>
+
+            <td>
+                <a href="/orders/inRepairList/${employee.id}">Orders in repair</a>
+            </td>
+
         </tr>
     </c:forEach>
 </table>

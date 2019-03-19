@@ -35,6 +35,27 @@ public class OrdersController {
         return "redirect:/orders/list";
     }
 
+    @GetMapping("/shortList")
+    public String getShortList(Model model){
+        List<Orders> ordersShort = ordersService.findAll();
+        model.addAttribute("ordersShort", ordersShort);
+        return "ordersShort";
+    }
+
+    @GetMapping("/inRepairList/{id}")
+    public String getInRepairList(@PathVariable Long id, Model model){
+        List<Orders> ordersInRepair = ordersRepository.findAllByEmployee_IdAndRepairStatus(id);
+        model.addAttribute("ordersInRepair", ordersInRepair);
+        return "inRepairList";
+    }
+
+    @GetMapping("/orderDetail/{id}")
+    public String getOrderDetails(@PathVariable Long id, Model model){
+        Orders orderDetail = ordersRepository.findOne(id);
+        model.addAttribute("orderDetail", orderDetail);
+        return "orderDetail";
+    }
+
     @GetMapping("/list")
     public String getList(Model model){
         List<Orders> orders = ordersService.findAll();
