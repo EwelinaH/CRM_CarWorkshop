@@ -1,6 +1,7 @@
 package com.ewelina.app.Orders;
 
 import com.ewelina.app.Employee.Employee;
+import com.ewelina.app.Vehicle.Vehicle;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -51,6 +52,9 @@ public class Orders {
 
     @ManyToOne
     private Employee employee;
+
+    @ManyToOne
+    private Vehicle vehicle;
 
     public Long getId() {
         return id;
@@ -156,6 +160,14 @@ public class Orders {
         this.employee = employee;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -171,6 +183,8 @@ public class Orders {
                 ", employeeManHour=" + employeeManHour +
                 ", workingHours=" + workingHours +
                 ", employee=" + employee +
+                ", vehicle=" + vehicle +
                 '}';
     }
+
 }

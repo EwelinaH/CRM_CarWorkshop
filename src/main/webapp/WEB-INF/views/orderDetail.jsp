@@ -25,6 +25,8 @@
         <th>Employee ID</th>
         <th>Employee Name</th>
         <th>Employee Surname</th>
+        <th>Vehicle Brand</th>
+        <th>Vehicle Registration</th>
     </tr>
 
         <tr>
@@ -42,6 +44,8 @@
             <td>${orderDetail.employee.id}</td>
             <td>${orderDetail.employee.employeeName}</td>
             <td>${orderDetail.employee.employeeSurname}</td>
+            <td>${orderDetail.vehicle.carBrand}</td>
+            <td>${orderDetail.vehicle.registrationNo}</td>
             <td>
                 <a href="/orders/delete/${orderDetail.id}">Delete</a>
                 <a href="/orders/update/${orderDetail.id}">Update</a>

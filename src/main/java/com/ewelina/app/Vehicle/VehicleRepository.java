@@ -14,4 +14,7 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     @Query("select v from Vehicle v where v.customer.id = ?1")
     List<Vehicle> findAllByCustomer_Id (Long id);
 
+
+
+
 }

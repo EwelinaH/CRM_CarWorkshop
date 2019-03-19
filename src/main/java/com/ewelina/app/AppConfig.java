@@ -3,6 +3,7 @@ package com.ewelina.app;
 
 import com.ewelina.app.Customer.CustomerConverter;
 import com.ewelina.app.Employee.EmployeeConverter;
+import com.ewelina.app.Vehicle.VehicleConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -84,10 +85,16 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return new EmployeeConverter();
     }
 
+    @Bean
+    public VehicleConverter getVehicleConverter(){
+        return new VehicleConverter();
+    }
+
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getCustomerConverter());
         registry.addConverter(getEmployeeConverter());
+        registry.addConverter(getVehicleConverter());
     }
 
 }

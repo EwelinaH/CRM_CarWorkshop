@@ -3,6 +3,8 @@ package com.ewelina.app.Vehicle;
 import com.ewelina.app.Customer.Customer;
 import com.ewelina.app.Customer.CustomerRepository;
 import com.ewelina.app.Customer.CustomerService;
+import com.ewelina.app.Orders.Orders;
+import com.ewelina.app.Orders.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,9 @@ public class VehicleController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private OrdersRepository ordersRepository;
 
     @GetMapping("/add")
     public String addVehicle(Model model){
@@ -78,11 +83,12 @@ public class VehicleController {
 //        return "vehiclesList";
     }
 
-//    @GetMapping("/list")
-//    public String getList(Model model){
-//        List<Vehicle> vehicle = vehicleService.findAll();
-//        model.addAttribute("vehicle", vehicle);
-//        return "vehiclesList";
-//    }
+
+    @GetMapping("/vehicleHistory/{id}")
+    public String getVehicleHistory(@PathVariable Long id, Model model){
+        List<Orders> vehicleHistory = ordersRepository.findAllByVehicleId(id);
+        model.addAttribute("vehicleHistory", vehicleHistory);
+        return "vehicleHistory";
+    }
 
 }

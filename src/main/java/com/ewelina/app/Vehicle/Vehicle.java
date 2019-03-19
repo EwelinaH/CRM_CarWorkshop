@@ -1,6 +1,7 @@
 package com.ewelina.app.Vehicle;
 
 import com.ewelina.app.Customer.Customer;
+import com.ewelina.app.Orders.Orders;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,6 +9,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "vehicles")
@@ -39,6 +42,9 @@ public class Vehicle {
 
     @ManyToOne
     private Customer customer; //(wiele pojazdów wskazuje na jednego customera)
+
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+    private List<Orders> ordersList = new ArrayList<>();
 
     public void setId(Long id) {
         this.id = id;
@@ -95,6 +101,14 @@ public class Vehicle {
     public Vehicle() {
     }
 
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
+    }
+
     @Override
     public String toString() {
         return "Vehicle{" +
@@ -105,6 +119,8 @@ public class Vehicle {
                 ", registrationNo='" + registrationNo + '\'' +
                 ", nextInspection=" + nextInspection +
                 ", customer=" + customer +
+                ", ordersList=" + ordersList.size() +
                 '}';
     }
+
 }

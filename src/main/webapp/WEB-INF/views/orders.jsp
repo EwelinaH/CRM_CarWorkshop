@@ -55,6 +55,11 @@
         <form:options items="${availableEmployee}" itemValue="id" itemLabel="employeeSurname"/><br>
     </form:select>
 
+    Vehicle Name:
+    <form:select path="vehicle">
+        <form:options items="${availableVehicle}" itemValue="id" itemLabel="carBrand"/><br>
+    </form:select>
+
     <input type="submit" value="save">
 
 </form:form>

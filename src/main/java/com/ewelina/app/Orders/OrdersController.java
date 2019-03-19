@@ -2,6 +2,8 @@ package com.ewelina.app.Orders;
 
 import com.ewelina.app.Employee.Employee;
 import com.ewelina.app.Employee.EmployeeRepository;
+import com.ewelina.app.Vehicle.Vehicle;
+import com.ewelina.app.Vehicle.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ public class OrdersController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
 
     @GetMapping("/add")
@@ -87,7 +92,9 @@ public class OrdersController {
         return this.employeeRepository.findAll();
     }
 
-
-
+    @ModelAttribute("availableVehicle")
+    public List<Vehicle> getVehicle(){
+        return this.vehicleRepository.findAll();
+    }
 
 }

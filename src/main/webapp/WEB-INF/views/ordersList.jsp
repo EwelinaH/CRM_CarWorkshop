@@ -25,6 +25,9 @@
         <th>Employee ID</th>
         <th>Employee Name</th>
         <th>Employee Surname</th>
+        <th>Vehicle Id</th>
+        <th>Vehicle CarBrand</th>
+        <th>Vehicle Registration</th>
     </tr>
 
     <c:forEach items="${orders}" var="order">
@@ -43,6 +46,9 @@
             <td>${order.employee.id}</td>
             <td>${order.employee.employeeName}</td>
             <td>${order.employee.employeeSurname}</td>
+            <td>${order.vehicle.id}</td>
+            <td>${order.vehicle.carBrand}</td>
+            <td>${order.vehicle.registrationNo}</td>
             <td>
                 <a href="/orders/delete/${order.id}">Delete</a>
                 <a href="/orders/update/${order.id}">Update</a>

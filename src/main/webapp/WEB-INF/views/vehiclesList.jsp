@@ -20,6 +20,8 @@
         <th>Customer Id</th>
         <th>Customer Name</th>
         <th>Customer Surname</th>
+        <th>Delete/ Update</th>
+        <th>Vehicle Orders History</th>
     </tr>
 
     <c:forEach items="${vehicle}" var="vehicle">
@@ -36,6 +38,10 @@
             <td>
                 <a href="/vehicle/delete/${vehicle.id}">Delete</a>
                 <a href="/vehicle/update/${vehicle.id}">Update</a>
+            </td>
+
+            <td>
+                <a href="/vehicle/vehicleHistory/${vehicle.id}">Vehicle Orders History</a>
             </td>
         </tr>
     </c:forEach>
