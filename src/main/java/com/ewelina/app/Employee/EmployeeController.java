@@ -3,20 +3,13 @@ package com.ewelina.app.Employee;
 import com.ewelina.app.Orders.Orders;
 import com.ewelina.app.Orders.OrdersRepository;
 import com.ewelina.app.OrdersDTO;
-import org.hibernate.criterion.Order;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -31,10 +24,6 @@ public class EmployeeController {
 
     @Autowired
     private OrdersRepository ordersRepository;
-
-    @Autowired
-    private ModelMapper modelMapper;
-
 
     @GetMapping("/add")
     public String addEmployee(Model model) {
@@ -81,22 +70,12 @@ public class EmployeeController {
         return "ordersList";
     }
 
-    //@GetMapping("/update/{id}")
-//    public String update(@PathVariable Long id, Model model) {
-//        Employee employee = employeeRepository.findOne(id);
-//        model.addAttribute("employee", employee);
-//        return "editEmployeeForm";
-//    }
-
     @GetMapping("/orderbydate")
     public String getOrderByDate(@ModelAttribute Orders orders, @ModelAttribute Employee employee) {
-//        model.addAttribute("ordersDto", new OrdersDTO());
         return "hoursReport";
     }
 
-//@RequestParam(name = "id") Long id
     @PostMapping("/orderbydate")
-//    @ResponseBody
     public String getOrderByDate(
                                  @RequestParam(name = "repairStartDate") String repairStartDate,
                                  @RequestParam(name = "repairEndingDate") String repairEndingDate, Model model) {
@@ -109,24 +88,7 @@ public class EmployeeController {
         List<OrdersDTO> employeeWorkingHours =
                 ordersRepository.findHourSumByEmployee(repairStartDateLocal, repairEndingDateLocal);
 
-//        System.out.println(employeeWorkingHours.get(0).getEmployeeName());
-
-//        return employeeWorkingHours.get(0).toString();
-
-//        OrdersDTO[] arr = employeeWorkingHours.toArray(new OrdersDTO[1]);
-
-
-//        return employeeWorkingHours;
-//        ArrayList<String> arr = new ArrayList<>();
-//        for (OrdersDTO obj: employeeWorkingHours
-//             ) {
-//            arr.add(obj.toString());
-//        }
-//        String joinedArray = String.join(",", arr);
-//        List<String> list = Arrays.asList(employeeWorkingHours);
-
         model.addAttribute("employeeWorkingHours", employeeWorkingHours);
-//        return joinedArray;
         return "hoursList";
     }
 

@@ -18,12 +18,6 @@
     To Date:
     <input type="text" name="repairEndingDate" id="repairEndingDate" value="2019/08/10">
 
-    <%--From Date:--%>
-    <%--<form:input type="date" path="repairStartDate" value="02/08/2019"/><br>--%>
-
-    <%--To Date:--%>
-    <%--<form:input type="date" path="repairEndingDate" value="10/08/2019"/><br>--%>
-
     <input type="submit" value="submit">
 
 </form:form>

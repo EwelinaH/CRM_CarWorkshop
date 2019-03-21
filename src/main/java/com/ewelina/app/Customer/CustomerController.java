@@ -66,31 +66,14 @@ public class CustomerController {
         return "searchCustomer";
     }
 
-//    @PostMapping("/find")
-//    public String findCustomer(@ModelAttribute Customer customer, String customerSurname){
-//        System.out.println("-----\n" +
-//                this.customerRepository.findByCustomerSurname(customerSurname)
-//                + "-------\n");
-//        Customer customer2 = this.customerRepository.findByCustomerSurname(customerSurname);
-//        return "redirect:/customer/update/" + customer2.getId();
-//    }
-
     @PostMapping("/find")
     public String findCustomer(@RequestParam(name = "customerSurname") String customerSurname, Model model){
-//        System.out.println("-----\n" +
-//                this.customerRepository.findByCustomerSurname(customerSurname)
-//                + "-------\n");
-//        Customer customer2 = this.customerRepository.findByCustomerSurname(customerSurname);
 
         List<Customer> customers = customerRepository.findByCustomerSurname(customerSurname);
 
         model.addAttribute("customers", customers);
         return "customersList";
-
-
-//        return "redirect:/customer/update/" + customer2.getId();
     }
-
 
     @GetMapping("/vehicleList/{id}")
     public String getVehicleList(@PathVariable Long id, Model model){
