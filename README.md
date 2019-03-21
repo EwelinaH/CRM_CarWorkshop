@@ -1,6 +1,5 @@
 # CRM_CarWorkshop
-Simple CRM to manage CarWorkshop using: Java, Maven, Hibernate,  
-Spring MVC, MySQL, JPQL, JSP
+Simple CRM to manage CarWorkshop using: Java, Maven, Hibernate, Spring MVC, MySQL, JPQL, JSP
 
 Functionality:
 
