@@ -36,6 +36,9 @@
     Repair Start Date:
     <form:input type="date" path="repairStartDate" /><br>
 
+    Repair Ending Date:
+    <form:input type="date" path="repairEndingDate" /><br>
+
     <%--Repair Status:--%>
     <%--<form:input type="text" path="repairStatus" /><br>--%>
     Repair Status:

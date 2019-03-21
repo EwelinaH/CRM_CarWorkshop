@@ -29,6 +29,9 @@ public class Orders {
     @DateTimeFormat(pattern ="dd/MM/yyyy")
     private LocalDate repairStartDate;
 
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
+    private LocalDate repairEndingDate;
+
     @Size(max = 255)
     private String problemDescription;
 
@@ -168,6 +171,14 @@ public class Orders {
         this.vehicle = vehicle;
     }
 
+    public LocalDate getRepairEndingDate() {
+        return repairEndingDate;
+    }
+
+    public void setRepairEndingDate(LocalDate repairEndingDate) {
+        this.repairEndingDate = repairEndingDate;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -175,6 +186,7 @@ public class Orders {
                 ", puttingToRepairDate=" + puttingToRepairDate +
                 ", plannedStartRepairDate=" + plannedStartRepairDate +
                 ", repairStartDate=" + repairStartDate +
+                ", repairEndingDate=" + repairEndingDate +
                 ", problemDescription='" + problemDescription + '\'' +
                 ", repairDescription='" + repairDescription + '\'' +
                 ", repairStatus='" + repairStatus + '\'' +

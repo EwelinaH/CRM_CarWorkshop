@@ -15,6 +15,9 @@
 <a href="/orders/add">Order add</a>
 <a href="/orders/list">Orders list</a>
 <a href="/orders/shortList">Orders Short list</a>
+
+<a href="/employee/orderbydate">Repot1 dates</a>
+
 <%--<a href="/orders/orderDetails/">Order detail</a>--%>
 <%--<a href="/orders/inRepairList/">In repair list</a>--%>
 <%--<a href="/customer/vehicleList/">Customer vehicle list</a>--%>

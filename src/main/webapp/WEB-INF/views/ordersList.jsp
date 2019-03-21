@@ -20,6 +20,7 @@
         <th>Repair Cost For Customer</th>
         <th>Repair Description</th>
         <th>Repair Start Date</th>
+        <th>Repair Ending Date</th>
         <th>Repair Status</th>
         <th>Working Hours</th>
         <th>Employee ID</th>
@@ -41,6 +42,7 @@
             <td>${order.repairCostForCustomer}</td>
             <td>${order.repairDescription}</td>
             <td>${order.repairStartDate}</td>
+            <td>${order.repairEndingDate}</td>
             <td>${order.repairStatus}</td>
             <td>${order.workingHours}</td>
             <td>${order.employee.id}</td>

@@ -1,16 +1,34 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ewelina
-  Date: 2019-03-21
-  Time: 00:09
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <title>Title</title>
+    <title>Edit Employee Form</title>
 </head>
 <body>
 
+<%@include file="/WEB-INF/views/header.jspf.jsp"%>
+
+<form:form method="post" >
+
+    From Date:
+    <input type="text" name="repairStartDate" id="repairStartDate" value="2019/08/02">
+
+    To Date:
+    <input type="text" name="repairEndingDate" id="repairEndingDate" value="2019/08/10">
+
+    <%--From Date:--%>
+    <%--<form:input type="date" path="repairStartDate" value="02/08/2019"/><br>--%>
+
+    <%--To Date:--%>
+    <%--<form:input type="date" path="repairEndingDate" value="10/08/2019"/><br>--%>
+
+    <input type="submit" value="submit">
+
+</form:form>
+
+
 </body>
 </html>
+

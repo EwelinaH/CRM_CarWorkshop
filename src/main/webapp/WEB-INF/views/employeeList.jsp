@@ -20,6 +20,8 @@
         <th>Delete</th>
         <th>Update</th>
         <th>Employee orders</th>
+        <th>Orders in repair</th>
+        <th>Working hours report</th>
     </tr>
 
     <c:forEach items="${employees}" var="employee">
@@ -42,6 +44,10 @@
 
             <td>
                 <a href="/orders/inRepairList/${employee.id}">Orders in repair</a>
+            </td>
+
+            <td>
+                <a href="/employee/orderbydate?repairStartDate=2019%2F08%2F02&repairEndingDate=2019%2F08%2F10">Report</a>
             </td>
 
         </tr>
