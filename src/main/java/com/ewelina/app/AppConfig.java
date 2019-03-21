@@ -9,9 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
@@ -29,10 +27,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
-import java.text.ParseException;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Locale;
 
 @Configuration
@@ -114,27 +109,11 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
         DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
         registrar.setDateFormatter(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-//        registrar.setDateTimeFormatter(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
+        registrar.setDateTimeFormatter(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
         registrar.registerFormatters(conversionService);
-
-        // other desired formatters
 
         return conversionService;
     }
-//    @Bean
-//    public Formatter<LocalDate> localDateFormatter() {
-//        return new Formatter<LocalDate>() {
-//            @Override
-//            public LocalDate parse(String text, Locale locale) throws ParseException {
-//                return LocalDate.parse(text, DateTimeFormatter.ISO_DATE);
-//            }
-//
-//            @Override
-//            public String print(LocalDate object, Locale locale) {
-//                return DateTimeFormatter.ISO_DATE.format(object);
-//            }
-//        };
-//    }
 
     @Bean
     public ModelMapper modelMapper() {
