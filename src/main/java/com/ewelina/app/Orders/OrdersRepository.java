@@ -40,5 +40,12 @@ public interface OrdersRepository extends JpaRepository<Orders, Long> {
                                           @Param("repairEndingDate") LocalDate repairEndingDate);
 
 
+    @Query(value = "select sum((o.workingHours*o.employeeManHour) + (o.componentsCost)) " +
+            "as sumOfIncome from Orders o where o.repairStartDate >= :repairStartDate and" +
+            " o.repairEndingDate <= :repairEndingDate")
+
+    List<Object>sumOfIncome(@Param("repairStartDate") LocalDate repairStartDate,
+                          @Param("repairEndingDate") LocalDate repairEndingDate);
+
 
 }

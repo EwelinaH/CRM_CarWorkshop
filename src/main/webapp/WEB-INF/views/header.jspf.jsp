@@ -16,11 +16,8 @@
 <a href="/orders/list">Orders list</a>
 <a href="/orders/shortList">Orders Short list</a>
 
-<a href="/employee/orderbydate">Repot1 dates</a>
-
-<%--<a href="/orders/orderDetails/">Order detail</a>--%>
-<%--<a href="/orders/inRepairList/">In repair list</a>--%>
-<%--<a href="/customer/vehicleList/">Customer vehicle list</a>--%>
+<a href="/employee/report">Work Report</a>
+<a href="/employee/income">Income report</a>
 
 </body>
 </html>

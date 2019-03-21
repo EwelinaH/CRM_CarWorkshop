@@ -4,21 +4,25 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <title>Search Customer</title>
+    <title>Income</title>
 </head>
 <body>
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
-<form:form  method="post">
+<form:form method="post" >
 
-    Search Customer By Surname:
-    <%--<form:input type="text" path="customerSurname"/><br>--%>
-    <input type="text" name="customerSurname" id="customerSurname" class="form-control" value="Kot">
-    <input type="submit" value="search">
+    From Date:
+    <input type="text" name="repairStartDate" id="repairStartDate" value="2019/08/02">
+
+    To Date:
+    <input type="text" name="repairEndingDate" id="repairEndingDate" value="2019/08/10">
+
+    <input type="submit" value="submit">
 
 </form:form>
 
 
 </body>
 </html>
+

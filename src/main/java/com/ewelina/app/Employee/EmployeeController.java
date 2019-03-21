@@ -70,12 +70,12 @@ public class EmployeeController {
         return "ordersList";
     }
 
-    @GetMapping("/orderbydate")
+    @GetMapping("/report")
     public String getOrderByDate(@ModelAttribute Orders orders, @ModelAttribute Employee employee) {
         return "hoursReport";
     }
 
-    @PostMapping("/orderbydate")
+    @PostMapping("/report")
     public String getOrderByDate(
                                  @RequestParam(name = "repairStartDate") String repairStartDate,
                                  @RequestParam(name = "repairEndingDate") String repairEndingDate, Model model) {
@@ -88,8 +88,36 @@ public class EmployeeController {
         List<OrdersDTO> employeeWorkingHours =
                 ordersRepository.findHourSumByEmployee(repairStartDateLocal, repairEndingDateLocal);
 
+        model.addAttribute("repairStartDateLocal", repairStartDateLocal);
+        model.addAttribute("repairEndingDateLocal", repairEndingDateLocal);
         model.addAttribute("employeeWorkingHours", employeeWorkingHours);
         return "hoursList";
+    }
+
+    @GetMapping("/income")
+    public String sumOfIncome(@ModelAttribute Orders orders) {
+        return "income";
+    }
+
+    @PostMapping("/income")
+    public String sumOfIncome(
+            @RequestParam(name = "repairStartDate") String repairStartDate,
+            @RequestParam(name = "repairEndingDate") String repairEndingDate, Model model) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+        LocalDate repairStartDateLocal = LocalDate.parse(repairStartDate, formatter);
+        LocalDate repairEndingDateLocal = LocalDate.parse(repairEndingDate, formatter);
+
+        List<Object> sumOfIncome =
+                ordersRepository.sumOfIncome(repairStartDateLocal, repairEndingDateLocal);
+
+        Double sum = (Double) sumOfIncome.get(0);
+
+        model.addAttribute("repairStartDateLocal", repairStartDateLocal);
+        model.addAttribute("repairEndingDateLocal", repairEndingDateLocal);
+        model.addAttribute("sumOfIncome", sum.toString());
+        return "sumOfIncome";
     }
 
 }

@@ -13,15 +13,15 @@
     <tr>
         <th>Employee Name</th>
         <th>Employee Surname</th>
-        <th>Employee Working Hours</th>
+        <th>Total employee working hours for the period from ${repairStartDateLocal} to ${repairEndingDateLocal}</th>
 
     </tr>
 
     <c:forEach items="${employeeWorkingHours}" var="employee">
         <tr>
-            <td>${employee.employeeName}</td>
-            <td>${employee.employeeSurname}</td>
-            <td>${employee.workingHours}</td>
+            <td align="center">${employee.employeeName}</td>
+            <td align="center">${employee.employeeSurname}</td>
+            <td align="center">${employee.workingHours}</td>
         </tr>
     </c:forEach>
 </table>
