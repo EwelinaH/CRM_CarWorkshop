@@ -8,6 +8,12 @@
 <body>
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
+<div class="content">
+    <a href="/vehicle/list">Vehicles list</a>
+    <a href="/vehicle/add">Vehicle add</a>
+</div><br>
+
+<div class="content">
 
 <table border="1">
     <tr>
@@ -47,5 +53,6 @@
     </c:forEach>
 </table>
 
+</div>
 </body>
 </html>

@@ -9,6 +9,13 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
+<div class="content">
+<a href="/customer/list">Customer List</a>
+<a href="/customer/add">Customer add</a>
+<a href="/customer/find">Customer find</a>
+</div><br>
+
+<div class="content">
 <table border="1">
     <tr>
         <th>Name</th>
@@ -41,6 +48,7 @@
         </tr>
     </c:forEach>
 </table>
+</div>
 
 </body>
 </html>

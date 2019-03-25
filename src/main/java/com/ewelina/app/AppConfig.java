@@ -3,6 +3,7 @@ package com.ewelina.app;
 
 import com.ewelina.app.Customer.CustomerConverter;
 import com.ewelina.app.Employee.EmployeeConverter;
+import com.ewelina.app.User.SessionManager;
 import com.ewelina.app.Vehicle.VehicleConverter;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -19,10 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import javax.persistence.EntityManagerFactory;
@@ -47,7 +45,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("forward:/customer/list");
+        registry.addViewController("/").setViewName("forward:/login");
     }
 
     @Bean
@@ -118,6 +116,19 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
+    }
+
+    @Bean
+    public SessionManager getSessionManager() {
+        return new SessionManager();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(getSessionManager())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/login")
+                .excludePathPatterns("/register");
     }
 
 }

@@ -9,13 +9,15 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Birth date</th>
-        <th>ID</th>
-    </tr>
+<div class="content">
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birth date</th>
+            <th>ID</th>
+        </tr>
 
         <tr>
             <td>${customerName}</td>
@@ -28,7 +30,9 @@
                 <a href="/customer/update/${customer.id}">Update</a>
             </td>
         </tr>
-</table>
+    </table>
+
+</div>
 
 </body>
 </html>

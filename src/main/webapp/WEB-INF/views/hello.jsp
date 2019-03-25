@@ -1,18 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ewelina
-  Date: 2019-03-07
-  Time: 18:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>hello</title>
-</head>
+
 <body>
+<%@ include file="/WEB-INF/views/header.jspf.jsp" %>
 
-<h1> Hello </h1>
-
+<div class="content">
+    <h1>Home</h1>
+</div>
 </body>
+
 </html>

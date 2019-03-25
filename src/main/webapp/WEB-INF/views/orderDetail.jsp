@@ -9,6 +9,8 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
+<div class="content">
+
 <table border="1">
     <tr>
         <th>Order ID</th>
@@ -54,6 +56,9 @@
             </td>
         </tr>
 </table>
+
+</div>
+
 
 </body>
 </html>

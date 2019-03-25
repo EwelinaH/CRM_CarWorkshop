@@ -8,6 +8,13 @@
 <body>
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
+<div class="content">
+    <a href="/orders/add">Order add</a>
+    <a href="/orders/list">Orders list</a>
+    <a href="/orders/shortList">Orders Short list</a>
+</div><br>
+
+<div class="content">
 
 <table border="1">
     <tr>
@@ -58,6 +65,6 @@
         </tr>
     </c:forEach>
 </table>
-
+</div>
 </body>
 </html>

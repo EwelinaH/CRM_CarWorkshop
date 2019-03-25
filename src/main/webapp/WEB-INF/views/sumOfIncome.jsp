@@ -9,6 +9,8 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
+<div class="content">
+
 <table border="1">
     <tr>
         <th>Total revenues for the period from ${repairStartDateLocal} to ${repairEndingDateLocal} PLN</th>
@@ -18,6 +20,6 @@
         <td align="center"> ${sumOfIncome}</td>
     </tr>
 </table>
-
+</div>
 </body>
 </html>

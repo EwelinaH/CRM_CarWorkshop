@@ -10,6 +10,8 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
+<div class="content">
+
 <form:form method="post" modelAttribute="employee">
 
     Name:
@@ -31,6 +33,6 @@
 
 </form:form>
 
-
+</div>
 </body>
 </html>

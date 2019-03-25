@@ -9,6 +9,7 @@
 <body>
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
+<div class="content">
 
 <form:form  method="post">
 
@@ -19,6 +20,6 @@
 
 </form:form>
 
-
+</div>
 </body>
 </html>

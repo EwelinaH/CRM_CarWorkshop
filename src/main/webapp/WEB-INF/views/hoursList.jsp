@@ -9,6 +9,8 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
+<div class="content">
+
 <table border="1">
     <tr>
         <th>Employee Name</th>
@@ -25,6 +27,8 @@
         </tr>
     </c:forEach>
 </table>
+
+</div>
 
 </body>
 </html>

@@ -9,6 +9,9 @@
 <body>
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
+
+<div class="content">
+
 <form:form>
 
 
@@ -24,6 +27,8 @@
     <input type="submit" value="save">
 
 </form:form>
+
+</div>
 
 </body>
 </html>

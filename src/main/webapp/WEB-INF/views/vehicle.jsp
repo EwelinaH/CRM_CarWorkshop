@@ -10,6 +10,8 @@
 
 <%@include file="/WEB-INF/views/header.jspf.jsp"%>
 
+<div class="content">
+
 <form:form method="post" modelAttribute="vehicle">
 
     Car Brand:
@@ -35,7 +37,7 @@
     <input type="submit" value="save">
 
 </form:form>
-
+</div>
 
 </body>
 </html>
