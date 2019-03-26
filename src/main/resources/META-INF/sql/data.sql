@@ -59,6 +59,15 @@ create table if not exists orders
 		foreign key (vehicle_id) references vehicles (id)
 );
 
+create table if not exists user
+(
+	id bigint auto_increment
+		primary key,
+	email varchar(255) not null,
+	password varchar(255) not null,
+	userName varchar(255) not null
+);
+
 
 
 INSERT INTO customer (id, customerName, customerSurname, dateOfBirth) VALUES (1, 'Magdalena', 'Kot', '1989-02-03');
@@ -83,3 +92,4 @@ INSERT INTO orders (id, componentsCost, employeeManHour, plannedStartRepairDate,
 INSERT INTO orders (id, componentsCost, employeeManHour, plannedStartRepairDate, problemDescription, puttingToRepairDate, repairCostForCustomer, repairDescription, repairStartDate, repairStatus, workingHours, employee_id, vehicle_id, repairEndingDate) VALUES (22, 35.5, 20.6, '2019-04-01', 'wymiana opon', '2019-08-02', 271.1, 'wymiana opon', '2019-08-02', 'In repair', 120, 3, 3, '2019-08-02');
 INSERT INTO orders (id, componentsCost, employeeManHour, plannedStartRepairDate, problemDescription, puttingToRepairDate, repairCostForCustomer, repairDescription, repairStartDate, repairStatus, workingHours, employee_id, vehicle_id, repairEndingDate) VALUES (23, 300.0, 22.6, '2019-04-01', 'uszkodzone drzwi', '2019-08-02', 271.1, 'naprawa drzwi', '2019-08-02', 'In repair', 60, 1, 3, '2019-08-02');
 INSERT INTO orders (id, componentsCost, employeeManHour, plannedStartRepairDate, problemDescription, puttingToRepairDate, repairCostForCustomer, repairDescription, repairStartDate, repairStatus, workingHours, employee_id, vehicle_id, repairEndingDate) VALUES (24, 250.5, 22.6, '2019-04-01', 'wymiana oleju', '2019-08-02', 271.1, 'wymiana oleju', '2019-08-02', 'In repair', 12.5, 1, 3, '2019-08-02');
+INSERT INTO car_workshop.user (id, email, password, userName) VALUES (18, 'user@op.pl', '$2a$10$.iJbZYlS..dC0u1Ok4.l7.2y8x72nhuAFm6NGrgFgHpV40Gc1HA7W', 'user');

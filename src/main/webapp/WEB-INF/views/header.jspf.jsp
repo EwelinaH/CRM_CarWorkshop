@@ -54,7 +54,7 @@
 <body>
 
 <ul>
-    <li><a href="/hello">Home</a></li>
+    <li><a href="/home">Home</a></li>
     <li><a href="/customer/list">Customers</a></li>
     <li><a href="/vehicle/list">Vehicles</a></li>
     <li><a href="/employee/list">Employees</a></li>

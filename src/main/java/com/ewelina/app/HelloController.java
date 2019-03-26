@@ -1,6 +1,5 @@
 package com.ewelina.app;
 
-import org.apache.log4j.ConsoleAppender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,7 +11,7 @@ import java.util.logging.Level;
 public class HelloController {
 
 //    private static final Logger logger = Logger.getLogger(HelloController.class.getName());
-    @GetMapping("/hello")
+    @GetMapping("/home")
     public String hello(){
 //        System.out.println("robi helloController");
 
@@ -25,6 +24,6 @@ public class HelloController {
         }
 
 
-        return "hello";
+        return "home";
     }
 }

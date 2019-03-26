@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -23,26 +24,43 @@ public class LoginController {
     UserService userService;
 
     @GetMapping("/login")
-    public String login() {
+    public String login(HttpSession session, Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
 
+        Object isLogged = session.getAttribute("login");
+        if (isLogged != null) {
+            return "redirect:/home";
+        }
+
+//        model.addAttribute("loginFailed", false);
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String userName, @RequestParam String password, Model model, HttpSession session) {
+    public String login(@RequestParam String userName, @RequestParam String password,
+                        HttpSession session,
+                        RedirectAttributes ra) {
         User user = userRepository.findUsersByName(userName);
-
-        boolean isLogged = user != null && BCrypt.checkpw(password, user.getPassword());
-        if (!isLogged) {
-            model.addAttribute("loginFailed", true);
-            return "login";
+//        if (result.hasErrors()) {
+//            return "redirect:/login";
+//        }
+        if (user == null) {
+//            model.addAttribute("loginFailed", true);
+            ra.addAttribute("loginFailed", true);
+            return "redirect:/login";
         }
+        boolean checkPass = BCrypt.checkpw(password, user.getPassword());
 
-//        user.setLastLogin(LocalDate.now());
-        userService.save(user);
-        session.setAttribute("login", true);
-        session.setAttribute("loggedInUser", user);
-        return "redirect:/hello";
+        if (!checkPass) {
+//            model.addAttribute("loginFailed", true);
+            ra.addAttribute("loginFailed", true);
+            return "redirect:/login";
+        } else {
+            session.setAttribute("login", true);
+            session.setAttribute("loggedInUser", user);
+            return "redirect:/home";
+        }
     }
 
     @GetMapping("/register")
@@ -57,11 +75,10 @@ public class LoginController {
         if (result.hasErrors()) {
             return "register";
         }
-//        user.setLastLogin(LocalDate.now());
         userService.save(user);
         session.setAttribute("login", true);
         session.setAttribute("loggedInUser", user);
-        return "redirect:/hello";
+        return "redirect:/login";
     }
 
     @GetMapping("/logout")

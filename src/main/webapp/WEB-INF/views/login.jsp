@@ -6,6 +6,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
 
@@ -13,17 +15,29 @@
 
 <div class="row">
     <div class="z-depth-3, col s4 offset-s4">
-        <form method="post">
+        <form:form method="post" modelAttribute="user">
 
-            User Name : <br><input type="text" name="userName"/><br>
-            Password : <br><input type="password" name="password"/><br>
+
+            <div class="form-group">
+                Login : <br><form:input type="text" path="userName" required="required"/><br>
+                <form:errors path="userName" element="div" cssClass="error"/><br>
+            </div>
+
+
+            <div class="form-group">
+                Password : <br><form:password path="password" cssClass="form-control" required="required"/><br>
+                <form:errors path="password" cssClass="error"/>
+            </div>
+
             <c:if test="${loginFailed == true}">
                 <span>Login Failed!</span><br>
             </c:if>
             <center>
                 <input type="submit" class="waves-effect waves-light btn" value="Log In">
             </center>
-        </form>
+
+        </form:form>
+
         <center>
             <a href="/register" class="waves-effect waves-light btn">New User</a>
         </center>
